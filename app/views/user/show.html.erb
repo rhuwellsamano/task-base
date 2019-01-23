@@ -1,0 +1,6 @@
+<h2>NAME: <%= @user.name %></h2>
+<h4>SLOGAN: "<%= @user.slogan %>"</h4>
+
+<%= button_to "All Users", users_path, method: :get %>
+<%= button_to "Edit User", edit_user_path(@user), method: :get %>
+<%= button_to 'Remove User', user_path(@user), method: 'delete', data: { confirm: 'Are you sure?' } %>
