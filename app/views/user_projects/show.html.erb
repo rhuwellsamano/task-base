@@ -1,6 +1,6 @@
-<h2>NAME: <%= @user.name %></h2>
-<h4>SLOGAN: "<%= @user.slogan %>"</h4>
+<h2>NAME: <%= @userproject.name %></h2>
+<h4>SLOGAN: "<%= @userproject.slogan %>"</h4>
 
-<%= button_to "All Users", users_path, method: :get %>
-<%= button_to "Edit User", edit_user_path(@user), method: :get %>
-<%= button_to 'Remove User', user_path(@user), method: 'delete', data: { confirm: 'Are you sure?' } %>
+<%= button_to "All UserProjects", userprojects_path, method: :get %>
+<%= button_to "Edit UserProjects", edit_userproject_path(@userproject), method: :get %>
+<%= button_to 'Remove UserProjects', userproject_path(@userproject), method: 'delete', data: { confirm: 'Are you sure?' } %>

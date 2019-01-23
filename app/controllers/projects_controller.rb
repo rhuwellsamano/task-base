@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
   def show
     # @project = Project.find(params[:id])
+    @users = User.all
   end
 
   def new
@@ -25,7 +26,7 @@ class ProjectsController < ApplicationController
 
   def update
     # @project = project.find(params[:id])
-    @project.update
+    @project.update(project_params)
 
     redirect_to project_path(@project)
   end
@@ -39,7 +40,7 @@ class ProjectsController < ApplicationController
 
 private
   def project_params
-    params.require(:project).permit(:name, :slogan)
+    params.require(:project).permit(:title, :description)
   end
 
 # ADD THE FOLLOWING PRIVATE METHOD/ACTION BELOW

@@ -1,9 +1,9 @@
 <table>
-  <% @users.each do |user| %>
+  <% @userprojects.each do |userproject| %>
     <tr>
-      <td><%= link_to user.name, user_path(user) %></td>
-      <td><%= button_to 'Edit', edit_user_path(user), method: 'get'%></td>
-      <td><%= button_to 'Remove', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to userproject.name, userproject_path(userproject) %></td>
+      <td><%= button_to 'Edit', edit_userproject_path(userproject), method: 'get'%></td>
+      <td><%= button_to 'Remove', userproject_path(userproject), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
   <% end %>
 </table>
-<%= link_to "Add a New User", new_user_path %>
+<%= link_to "Add a New UserProject", new_userproject_path %>

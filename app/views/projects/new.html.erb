@@ -1,7 +1,7 @@
-<h3>Create a User</h3>
-<%= form_for @user do |f| %>
-  <p>Enter user's Name: <%= f.text_field :name, placeholder: "user name" %></p>
-  <p>Enter Favorite Phrase: <%= f.text_field :slogan, placeholder: "user says.." %></p>
-
+<div class="wrapper"><h3>Create a Project</h3>
+<%= form_for @project do |f| %>
+  <p>Enter Project Title: <%= f.text_field :title, placeholder: "title" %></p>
+  <p>Enter Description: <%= f.text_field :description, placeholder: "description" %></p>
   <%= f.submit %>
 <% end %>
+</div>
