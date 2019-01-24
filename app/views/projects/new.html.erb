@@ -2,6 +2,14 @@
 <%= form_for @project do |f| %>
   <p>Enter Project Title: <%= f.text_field :title, placeholder: "title" %></p>
   <p>Enter Description: <%= f.text_field :description, placeholder: "description" %></p>
+  <%= f.fields_for :tasks do |task| %>
+  <%= task.label :name %>
+  <%= task.text_field :name %>
+  <br>
+  <%= task.label :status %>
+  <%= task.text_field :status %>
+  <br>
+  <% end %>
   <%= f.submit %>
 <% end %>
 </div>

@@ -1,9 +1,13 @@
+<h2> ALL TASKS INDEX </h2>
+<br>
 <table>
-  <% @users.each do |user| %>
+  <% @tasks.each do |task| %>
     <tr>
-      <td><%= link_to user.name, user_path(user) %></td>
-      <td><%= button_to 'Edit', edit_user_path(user), method: 'get'%></td>
-      <td><%= button_to 'Remove', user_path(user), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+      <td><%= button_to task.name, task_path(task), method: 'get' %></td>
+      <td><%= button_to 'Edit', edit_task_path(task), method: 'get'%></td>
+      <td><%= button_to 'Remove', task_path(task), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
   <% end %>
 </table>
-<%= link_to "Add a New User", new_user_path %>
+<br>
+<%= button_to "Add a New Task", new_task_path, method: 'get' %>
+<%= button_to "View All Projects", projects_path, method: 'get' %>

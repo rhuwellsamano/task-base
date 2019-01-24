@@ -1,6 +1,17 @@
 <h2>PROJECT TITLE: <%= @project.title %></h2>
 <h4>DESCRIPTION: "<%= @project.description %>"</h4>
 
+<%= button_to "Add New Task", new_task_path, method: :get %>
+<br>
+<% @project.tasks.each do |task| %>
+<div class="wrapper">
+<p>TASK NAME: <%= task.name %></p>
+<p>TASK STATUS: <%= task.status %></p>
+<p>---</p>
+</div>
+<% end %>
+<br>
+<br>
 <%= button_to "All Projects", projects_path, method: :get %>
 <%= button_to "Edit Project", edit_project_path(@project), method: :get %>
 <%= button_to 'Remove Project', project_path(@project), method: 'delete', data: { confirm: 'Are you sure?' } %>

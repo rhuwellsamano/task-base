@@ -1,9 +1,12 @@
+<h2> List of Current Projects </h2>
+<br>
 <table>
   <% @projects.each do |project| %>
     <tr>
-      <td><%= button_to "#{project.title}", project_path(project), method: :get %></td>
+      <td><%= button_to "#{project.title}", project_path(project), method: 'get' %></td>
       <td><%= button_to 'Edit', edit_project_path(project), method: 'get'%></td>
       <td><%= button_to 'Remove', project_path(project), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
   <% end %>
 </table>
-<%= link_to "Add a New Project", new_project_path %>
+<br>
+<%= button_to "Add a New Project", new_project_path, method: 'get' %>

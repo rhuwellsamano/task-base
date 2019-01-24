@@ -1,7 +1,15 @@
-<h3>Edit a Project</h3>
+<div class="wrapper"><h3>Edit a Project</h3>
 <%= form_for @project do |f| %>
-  <p>Enter project's Name: <%= f.text_field :title, placeholder: "project title" %></p>
-  <p>Enter Favorite Phrase: <%= f.text_field :description, placeholder: "project description.." %></p>
-
+  <p>Edit Project Title: <%= f.text_field :title, placeholder: "project title" %></p>
+  <p>Edit Description: <%= f.text_field :description, placeholder: "project description" %></p>
+  <%= f.fields_for :tasks do |task| %>
+  <%= task.label :name %>
+  <%= task.text_field :name %>
+  <br>
+  <%= task.label :status %>
+  <%= task.text_field :status %>
+  <br>
+  <% end %>
   <%= f.submit %>
 <% end %>
+</div>
