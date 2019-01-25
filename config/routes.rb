@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'projects#index'
   resources :tasks
   resources :user_projects
   resources :comments
@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   devise_for :users,
       path: '',
     path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
-    controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
+    # controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
+
+    controllers: {registrations: 'registrations'}
 
   resources :users, only: [:show]
 

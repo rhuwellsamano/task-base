@@ -1,12 +1,55 @@
 <h2> List of Current Projects </h2>
 <br>
-<table>
-  <% @projects.each do |project| %>
-    <tr>
-      <td><%= button_to "#{project.title}", project_path(project), method: 'get' %></td>
-      <td><%= button_to 'Edit', edit_project_path(project), method: 'get'%></td>
-      <td><%= button_to 'Remove', project_path(project), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
-</table>
-<br>
-<%= button_to "Add a New Project", new_project_path, method: 'get' %>
+<%# button_to "Add a New Project", new_project_path, method: 'get' %>
+
+<%# experimental code below %>
+
+<div class="d-flex flex-column align-items-center mt-3">
+  <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
+    <div class="card">
+      <div class="card-header">
+        Create Project
+      </div>
+      <div class="card-body">
+        <%= form_for @project, :html => {:multipart => true, :class => "p-0 border-0"} do |f| %>
+          <div class="form-group row mt-2">
+            <div class="col-auto pr-0">
+              <%# image_tag avatar_url(current_user), class: "post-author-icon" %>
+            </div>
+            <div class="col pl-0">
+              <%= f.text_field :title, class: "form-control border-0",
+                placeholder: "name your project:" %>
+            </div>
+            <br>
+            <div class="col pl-0">
+              <%= f.text_field :description, class: "form-control border-0",
+                placeholder: "description:" %>
+            </div>
+          </div>
+
+
+              <i class="fa fa-plus fa-2x" aria-hidden="true" style="color:#dddfe2"></i>
+            </div>
+          </div>
+          <%= f.submit "Add New Project!", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <br>
+
+      <br>
+      <table>
+        <% @projects.each do |project| %>
+          <tr>
+            <td><%= button_to "#{project.title}", project_path(project), method: 'get' %></td>
+            <td><%= button_to 'Edit', edit_project_path(project), method: 'get'%></td>
+            <td><%= button_to 'Remove', project_path(project), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </table>
+
+    </div>
+
+    <!-- <div id="projects">
+      <%# render 'projects_list' %>
+    </div> -->
+  <!-- </div> -->
+</div>
