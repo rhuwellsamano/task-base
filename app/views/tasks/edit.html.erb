@@ -2,6 +2,5 @@
 <%= form_for @task do |f| %>
   <p>Edit Task's Name: <%= f.text_field :name, placeholder: "task name" %></p>
   <p>Edit Task Status: <%= f.text_field :status, placeholder: "task status.." %></p>
-<%= f.collection_select :project_id, @projects, :id, :name %>
   <%= f.submit %>
 <% end %>

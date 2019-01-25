@@ -1,9 +1,13 @@
 class ProjectsController < ApplicationController
   before_action :current_project, only: [:show, :edit, :update, :destroy]
+  after_action :userproject_join, only: [:create]
 
   def index
-    @projects = Project.all.limit(10).includes(:tasks).order('created_at desc')
+    @projects = Project.all
     @project = Project.new
+    @user = current_user
+    @users = User.all
+    @userprojects = UserProject.all
   end
 
   def new
@@ -13,6 +17,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.create(project_params)
+    # UserProject.create(user_id: @user.id, @project.id)
 
     redirect_to project_path(@project)
   end
@@ -74,6 +79,10 @@ private
   def current_project
     @project = Project.find(params[:id])
   end
+
+ def userproject_join
+   UserProject.create(user_id: current_user.id, project_id: @project.id)
+ end
 
 
 end

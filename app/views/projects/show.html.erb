@@ -12,6 +12,6 @@
 <% end %>
 <br>
 <br>
-<%= button_to "All Projects", projects_path, method: :get %>
-<%= button_to "Edit Project", edit_project_path(@project), method: :get %>
+<%= button_to "All Projects", projects_path, method: 'get' %>
+<%= button_to "Edit Project", edit_project_path(@project), method: 'get' %>
 <%= button_to 'Remove Project', project_path(@project), method: 'delete', data: { confirm: 'Are you sure?' } %>

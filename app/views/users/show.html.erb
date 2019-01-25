@@ -31,6 +31,12 @@
       </div>
     </div>
     <div class="row">
-      <p class="email"><%= @user.email %></p>
+      <p class="email"><%= mail_to @user.email, "#{@user.email}" %></p>
+    </div>
+    <div class="row">
+      <p class="website"><%= link_to @user.website, "http://www.#{@user.website}" %></p>
+    </div>
+    <div class="row">
+      <p class="bio"><%= @user.bio %></p>
     </div>
   </div>

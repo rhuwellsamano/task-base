@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'projects#index'
+  root to: 'pages#home'
   resources :tasks
   resources :user_projects
   resources :comments
